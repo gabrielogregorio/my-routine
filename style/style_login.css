@@ -1,0 +1,150 @@
+.container_login_cadastro {
+  border-radius: 8px;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 500px;
+  padding: 1rem;
+}
+
+.container_login_cadastro > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_login_cadastro > div > form  {
+  padding: 1rem;
+  position: relative;
+  transition: 0.5s;
+}
+
+.container_login_cadastro div form h4 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.mensagem_erro {
+  color: #8B00B0;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+form input {
+  border: 1px solid #C6C6C6;
+  outline: none;
+}
+
+form input, form a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0.5rem;
+}
+
+form a{
+  color: #8B00B0;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container_cadastro form > a {
+  color: transparent;
+  cursor: default;
+}
+
+form input[type=submit] {
+  margin-bottom: 10px;
+  background-color: #8B00B0;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.container_cadastro form input[type=submit] {
+  background-color: #8B00B0;
+}
+
+.alternativa {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.alternativa span {
+  font-size: 1rem;
+}
+
+.alternativa a{
+  display: inline;
+  padding: 0;
+}
+
+
+.container_login_cadastro.cadastro_ativo .container_cadastro {
+  pointer-events: initial;
+} 
+ 
+.container_login_cadastro.cadastro_ativo .container_cadastro > form  {
+  left: 0;
+} 
+
+.container_login_cadastro.cadastro_ativo .container_login > form  {
+  left: 100%;
+} 
+ 
+.container_login_cadastro .container_cadastro {
+  pointer-events: none;
+}
+
+.container_login_cadastro .container_cadastro > form  {
+  left: 100%;
+} 
+
+.container_login_cadastro .container_login > form  {
+  left: 0;
+} 
+
+@media screen and (min-width: 550px) {
+  .container_login_cadastro > div > form  {
+    padding: 0;
+  }
+
+  .container_login_cadastro {
+    max-width: 500px;
+  }
+  
+  .mensagem_erro {
+    max-width: 320px;
+  }
+  
+  form input, form a{
+    max-width: 320px;
+  }
+  .alternativa {
+    max-width: 320px;
+  }
+}
