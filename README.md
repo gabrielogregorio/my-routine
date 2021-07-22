@@ -1,7 +1,7 @@
 # Minha-Rotina
-Programa para estudar implementações no PHP, por este motivo, não contém um README perfeitinho, por enquanto...git 
+Programa para estudar implementações no PHP, por este motivo, não contém um README perfeitinho, por enquanto...
 
-Versão beta disponível em: https://combratec.com.br/minha-rotina/index.php
+Versão beta disponível em: https://gabrielogregorio.com/projetos/minha-rotina/
 
 # Dependências
 1. composer require vlucas/phpdotenv
