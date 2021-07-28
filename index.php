@@ -4,4 +4,3 @@
     session_destroy(); // Destruir seção
 
     include('login.php');
-?>

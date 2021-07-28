@@ -16,4 +16,3 @@ catch (PDOException $e)
 {
     echo "Erro ao conectar com o banco de dados.\n\n".$e->getMessage();
 }
-?>

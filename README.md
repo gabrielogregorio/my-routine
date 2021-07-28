@@ -14,7 +14,7 @@ create DATABASE nome_database;
 ```sql
 create table usuarios (
 	id int primary key AUTO_INCREMENT,
-	login varchar(100),
+	login varchar(100) unique,
 	senha varchar(60)
 )
 ```

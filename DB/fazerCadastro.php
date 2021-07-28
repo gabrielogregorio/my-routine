@@ -68,9 +68,17 @@ try {
 	}
 
 	} catch (PDOException $e) {
-		// Usuário não foi cadastrado no sistema por algum erro
-		echo("Erro ao gravar informação no banco de dados. \n\n".$e->getMessage());
-	}
 
+		$tipo = "cadastro";
+
+		// Violação de chave unica
+		if($e->errorInfo[1] == 1062) {
+			$mensagem_erro = 'Já existe um usuário com esse e-mail, por favor, tente outro e-mail';
+			header("location: ../index.php?tipo=$tipo&mensagem_erro=$mensagem_erro");	
+		} else {
+			$mensagem_erro = 'Ops, houve um erro desconhecido! Desculpe pelo incoveniente!';
+			header("location: ../index.php?tipo=$tipo&mensagem_erro=$mensagem_erro");	
+		}
+	}
 // Destruir a conexão
 $conexao = null;

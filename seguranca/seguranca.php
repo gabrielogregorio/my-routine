@@ -29,5 +29,3 @@
 			return [true, $valor_tratado];
 	    }
 	}
-
- ?>
