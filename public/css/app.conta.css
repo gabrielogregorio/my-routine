@@ -1,0 +1,83 @@
+.container_conta {
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container_conta h4 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+form input {
+  border: 1px solid #C6C6C6;
+  outline: none;
+}
+
+form input, form a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0.5rem;
+}
+
+form a{
+  color: #e73023;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+form button {
+  margin-bottom: 10px;
+  background-color: #8B00B0;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+form input[type=submit] {
+  margin-bottom: 10px;
+  background-color: #8B00B0;
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+@media screen and (min-width: 550px) {
+  form input[type=submit] {
+    max-width: 320px;
+  }
+
+  form input, form a {
+    max-width: 320px;
+  }
+
+  .container_conta {
+    max-width: 500px;
+  }
+
+}
