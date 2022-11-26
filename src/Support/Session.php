@@ -12,7 +12,9 @@ class Session
     public function __construct()
     {
         if (! session_id()) {
-            session_save_path(SESSION_STORAGE);
+            if (! is_dir(SESSION_STORAGE)) {
+                mkdir(SESSION_STORAGE, 0700, true);
+            }
             session_start();
         }
     }
@@ -37,7 +39,7 @@ class Session
     {
         return $this->has($name);
     }
-    
+
     /**
      * @return object|null
      */
