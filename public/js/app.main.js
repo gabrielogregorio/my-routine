@@ -1,39 +1,28 @@
-function validar_checked(codigo) {
-    id = "chec" + codigo;
-    idspan = "span" + codigo;
-
-    var span = document.getElementById(idspan);
-    var checkBox = document.getElementById(id);
-
-    span.classList.toggle('checked');
-
-    checked = false;
-    if (checkBox.checked == false) {
-        checked = true;
-    }
-
-    data = new FormData()
-    data.set('id', codigo)
-    data.set('checked', checkBox.checked)
-
-    let request = new XMLHttpRequest();
-    request.open("POST", 'DB/marcarTarefa.php', true);
-    let res = request.send(data)
-
-    console.log('Olá muindo');
-    console.log(res);
-}
-
 function AdicionarTexto() {
     const input = document.getElementById('add_new_text');
     input.focus();
     input.select();
 }
 
-/*Não usado ainda*/
-function excluir() {
-      result = confirm("Excluir?");
-      if (result == true) {
-      console.log('remover');
-  }
+function checkTask(taskID) {
+    'use strict';
+
+    let checkID = 'chec' + taskID;
+    let spanID = 'span' + taskID;
+    let isChecked = false;
+
+    let span = document.getElementById(spanID);
+    let checkbox = document.getElementById(checkID);
+
+    span.classList.toggle('checked');
+
+    if (isChecked === false) isChecked = true;
+
+    let formData = new FormData();
+    formData.set('taskID', taskID);
+    formData.set('checked', checkbox.checked);
+
+    let request = new XMLHttpRequest();
+    request.open('POST', '../../process/task/check_task.php', true);
+    request.send(formData);
 }
