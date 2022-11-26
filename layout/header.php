@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap">
     <link rel="stylesheet" href="<?= BASEURL ?>/public/css/app.main.css">
     <link rel="shortcut icon" href="<?= BASEURL ?>/public/favicon.ico" type="image/x-icon">
+    <script src="<?= BASEURL ?>/public/js/app.main.js"></script>
+    <script src="<?= BASEURL ?>/public/js/app.login.js"></script>
 </head>
 <body>
     <header>
