@@ -9,17 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap">
     <link rel="stylesheet" href="<?= BASEURL ?>/public/css/app.main.css">
-    <link rel="stylesheet" href="<?= BASEURL ?>/public/css/app.login.css">
-    <link rel="stylesheet" href="<?= BASEURL ?>/public/css/app.conta.css">
     <link rel="shortcut icon" href="<?= BASEURL ?>/public/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#">Minhas Rotinas</a></li>
-                <li><a href="#">Conta</a></li>
-                <li><a href="#">Sair</a></li>
+                <li><a href="<?= BASEURL ?>/pages/home.php">Minhas Rotinas</a></li>
+                <li><a href="<?= BASEURL ?>/pages/user/conta.php">Conta</a></li>
+                <li><a href="<?= BASEURL ?>">Sair</a></li>
             </ul>
         </nav>
     </header>
