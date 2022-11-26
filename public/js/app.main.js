@@ -1,7 +1,8 @@
-function AdicionarTexto() {
-    const input = document.getElementById('add_new_text');
-    input.focus();
-    input.select();
+function addNewText() {
+    'use strict';
+    const inputText = document.getElementById('addNewText');
+    inputText.focus();
+    inputText.select();
 }
 
 function checkTask(taskID) {
