@@ -10,19 +10,20 @@ use MyRoutine\Database\MySqlManager;
 $session = new Session();
 
 try {
-    $mysql = new MySqlManager();
-    $conn = $mysql->connect();
+    $manager = new MySqlManager();
+    $mysql = $manager->connect();
 
     $query = 'INSERT INTO `users` (`username`, `password`) VALUES (?, ?)';
-    $stmt = $conn->prepare($query);
+    $stmt = $mysql->prepare($query);
     $stmt->bind_param('ss', $username, $password);
 
     $username = filter_input(INPUT_POST, 'username');
     $password = filter_input(INPUT_POST, 'password');
 
-    if ($stmt->execute()) {
-        header('Location: ' . BASEURL);
-    }
+    $stmt->execute();
+    header('Location: ' . BASEURL);
+
+    $mysql->close();
 } catch (Exception $e) {
-    $session->set('message', ['error' => ['register' => 'Erro ao realizar cadastro']]);
+    header('Location: ' . BASEURL);
 }
