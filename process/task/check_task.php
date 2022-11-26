@@ -29,6 +29,8 @@ try {
     if ($stmt->affected_rows) {
         $session->set('message', ['success' => ['task' => 'Tarefa marcada com sucesso!']]);
     }
+
+    $mysql->close();
 } catch (Exception $e) {
-    
+
 }

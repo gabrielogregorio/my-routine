@@ -1,25 +1,30 @@
-<?php  
+<?php
 
-    include('../seguranca/seguranca.php');
-    // Inicia a seção e verifica se o usuário está logado
-    session_start(); //iniciando um sessão
-    if(usuario_logado() == false) {
-        header("location: ../index.php");
-        exit;
-    }
+use MyRoutine\Database\MySqlManager;
+use MyRoutine\Support\Session;
 
-    // Obtem a conexão
-  	require_once("../conexao.php");
+require __DIR__ . '/../../vendor/autoload.php';
 
-    try {
-        // Executa um update para o usuário logado
-        $comando = $conexao->prepare("UPDATE tarefas SET marcada = 0 where id_usuario = ".$_SESSION["id"].';');
-        $comando->execute();
-        header('location: ../home.php'); 
-    } catch (PDOException $e) {
-        // Aconteceu algum erro
-        $mensagem_erro = $e->getMessage();
-        echo 'Erro ao executar a limpagem de tarefas'.$mensagem_erro;
-    }
- 
-    $conexao = null;
+$session = new Session();
+
+if (! $session->logged) {
+    header('Location: ' . BASEURL);
+}
+
+try {
+    $manager = new MySqlManager();
+    $mysql = $manager->connect();
+
+    $query = 'UPDATE `tasks` SET `is_checked` = false WHERE `user_id` = ?';
+
+    $stmt = $mysql->prepare($query);
+    $stmt->bind_param('i', $userID);
+
+    $userID = $session->userID;
+
+    $stmt->execute();
+
+    header('Location: ' . BASEURL);
+} catch (Exception $e) {
+
+}
