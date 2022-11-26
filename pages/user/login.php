@@ -20,8 +20,8 @@ $session = new Session();
         <form action="<?= BASEURL ?>/process/user/login.php" method="POST">
             <h1 style="font-size: 1.8em;">Fazer Login</h1>
             <?php
-            if ($session->message):
-                echo '<span class="mensagem_erro">' . $session->message . '</span>';
+            if (isset($session->message->error['register'])):
+                echo '<span class="mensagem_erro">' . $session->message->error['register'] ?? ''. '</span>';
             endif
             ?>
             <input type="email" name="username" placeholder="Email" autocomplete="on" autofocus aria-required="true">
