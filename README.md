@@ -38,9 +38,13 @@ Importe o banco de dados através do arquivo de dump que está localizado em sql
 
 ```sql
 CREATE DATABASE IF NOT EXISTS `my_routine` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+```
 
+```sql
 USE `my_routine`;
+```
 
+```sql
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL DEFAULT '',
@@ -50,7 +54,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `UQ_username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
 
+```sql
 CREATE TABLE IF NOT EXISTS `tasks` (
   `task_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL DEFAULT 0,
