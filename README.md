@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `task_name` varchar(50) NOT NULL DEFAULT '',
   `task_description` tinytext NULL DEFAULT NULL,
   `task_status` varchar(20) NOT NULL DEFAULT '',
-    `is_checked` tinyint(1) NOT NULL DEFAULT 0,
+  `is_checked` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NULL DEFAULT NULL ON UPDATE current_timestamp(),
   PRIMARY KEY (`task_id`),
