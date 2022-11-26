@@ -1,6 +1,13 @@
 <?php
-    session_start(); // Remover variáveis de seção
-    session_unset(); // Iniciar Seção
-    session_destroy(); // Destruir seção
 
-    include('login.php');
+use MyRoutine\Support\Session;
+
+require 'vendor/autoload.php';
+
+$session = new Session();
+
+if ($session->logged) {
+    header('Location: ' . BASEURL . '/pages/home.php');
+} else {
+    header('Location: ' . BASEURL . '/pages/user/login.php');
+}
