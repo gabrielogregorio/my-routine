@@ -16,8 +16,10 @@ try {
     $stmt = $mysql->prepare($query);
     $stmt->bind_param('ss', $username, $password);
 
-    $username = filter_input(INPUT_POST, 'username');
-    $password = filter_input(INPUT_POST, 'password');
+    if (! empty(filter_input(INPUT_POST, 'username')) || ! empty(filter_input(INPUT_POST, 'password'))) {
+        $username = filter_input(INPUT_POST, 'username');
+        $password = filter_input(INPUT_POST, 'password');
+    }
 
     if ($stmt->execute()) {
         $result = $stmt->get_result();
@@ -32,10 +34,8 @@ try {
         $session->set('username', $user->username);
 
         $result->close();
-
         header('Location: ' . BASEURL . '/pages/home.php');
     } else {
-        $session->set('message', 'Ops, usuário ou senha inválidos');
         header('Location: ' . BASEURL);
     }
 } catch (Exception $e) {
