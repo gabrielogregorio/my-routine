@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="<?= BASEURL ?>/pages/home.php">Minhas Rotinas</a></li>
                 <li><a href="<?= BASEURL ?>/pages/user/conta.php">Conta</a></li>
-                <li><a href="<?= BASEURL ?>">Sair</a></li>
+                <li><a href="<?= BASEURL ?>/pages/user/logoff.php">Sair</a></li>
             </ul>
         </nav>
     </header>
