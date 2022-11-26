@@ -18,17 +18,12 @@ $session = new Session();
     <!-- Login Form -->
     <div class="container_login">
         <form action="<?= BASEURL ?>/process/user/login.php" method="POST">
-            <h1 style="font-size: 1.8em;">Fazer Login</h1>
-            <?php
-            if (isset($session->message->error['register'])):
-                echo '<span class="mensagem_erro">' . $session->message->error['register'] ?? ''. '</span>';
-            endif
-            ?>
+            <h1 style="font-size: 1.8em;">Sign In</h1>
             <input type="email" name="username" placeholder="Email" autocomplete="on" autofocus aria-required="true">
             <input type="password" name="password" placeholder="Senha" autocomplete="on">
             <input type="submit" value="Fazer Login"></input>
             <div class="alternativa">
-                <span>Não tem conta?</span><a href="#" onclick="toggleForm();">Faça um Cadastro</a>
+                <span>Não tem conta? </span><a href="#" onclick="toggleForm();">Faça um Cadastro</a>
             </div>
             <a href="#">Esqueci minha senha</a>
         </form>
@@ -36,17 +31,12 @@ $session = new Session();
     <!-- Registration Form -->
     <div class="container_cadastro">
         <form action="<?= BASEURL ?>/process/user/register.php" method="POST">
-            <h1 style="font-size: 1.8em;">Fazer Login</h1>
-            <?php
-            if ($session->message):
-                echo '<span class="mensagem_erro">' . $session->message . '</span>';
-            endif
-            ?>
+            <h1 style="font-size: 1.8em;">Register</h1>
             <input type="email" name="username" placeholder="Email" autocomplete="on" autofocus aria-required="true">
             <input type="password" name="password" placeholder="Senha" autocomplete="on">
             <input type="submit" value="Fazer cadastro"></input>
             <div class="alternativa">
-                <span>Já tenho uma conta!</span><a href="#" onclick="toggleForm();">Faça login.</a>
+                <span>Já tenho uma conta! </span><a href="#" onclick="toggleForm();">Faça login.</a>
             </div>
             <a href="#">Esqueci minha senha</a>
         </form>
