@@ -16,7 +16,6 @@ if (! $session->logged) {
 
 include __DIR__ . '/../layout/header.php'
 ?>
-
 <div class="box">
     <h1>Minha Rotina</h1>
     <div class="items_flex">
@@ -37,15 +36,14 @@ include __DIR__ . '/../layout/header.php'
                 $stmt->close();
             }
         } catch (Exception $e) {
-            //throw $th;
+
         }
         ?>
         <?php if ($result->num_rows) : ?>
-
             <?php foreach($result->fetch_all(MYSQLI_ASSOC) as $task) : ?>
             <div class="item <?= $task['is_checked'] ?>">
                 <form action="<?= BASEURL ?>/process/task/remove_task.php" method="POST" class="item_remover">
-                    <input type="hidden" name="taskID" value="">
+                    <input type="hidden" name="taskID" value="<?= $task['task_id'] ?>">
                     <input type="submit" value="X">
                 </form>
                 <form class="checkboxLabel" action="/select" method="POST">
@@ -58,8 +56,8 @@ include __DIR__ . '/../layout/header.php'
         <?php endif ?>
     </div>
     <div class="tarefa_e_novo_dia">
-        <form action="<?= BASEURL ?>/process/task/insert_task.php" method="POST" class="nova_tarefa">
-            <input name="texto" type="text" placeholder="Nova tarefa">
+        <form action="<?= BASEURL ?>/process/task/new_task.php" method="POST" class="nova_tarefa">
+            <input name="newTask" type="text" placeholder="Nova tarefa">
             <input type="submit" value="+">
             <input type="submit" value="Adicionar tarefa" id="add_tarefa_mobile">
         </form>
