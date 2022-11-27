@@ -5,7 +5,7 @@ USE `my_routine`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL DEFAULT '',
-  `password` varchar(150) NOT NULL DEFAULT '',reorganização do projeto
+  `password` varchar(150) NOT NULL DEFAULT '',
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NULL DEFAULT NULL ON UPDATE current_timestamp(),
   PRIMARY KEY (`user_id`),
