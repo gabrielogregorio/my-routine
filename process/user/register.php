@@ -15,13 +15,21 @@ try {
 
     $query = 'INSERT INTO `users` (`username`, `password`) VALUES (?, ?)';
     $stmt = $mysql->prepare($query);
-    $stmt->bind_param('ss', $username, $password);
+    $stmt->bind_param('ss', $username, $encryptedPassword);
 
     $username = filter_input(INPUT_POST, 'username');
     $password = filter_input(INPUT_POST, 'password');
 
-    $stmt->execute();
-    header('Location: ' . BASEURL);
+    if (password_is_valid($password)) {
+        $encryptedPassword = password_encryption($password);
+        $stmt->execute();
+        header('Location: ' . BASEURL);
+    } else {
+        echo 'Ops, sua senha dever ter pelo menos ' . PASSWORD_MIN_LEN . ' caracteres';
+    }
+
+
+
 
     $mysql->close();
 } catch (Exception $e) {
